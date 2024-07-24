@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OBRAS LITERÁRIAS: INDIOS DO BRASIL.</title>
+
+    <style>
+       ul {
+            background-color: red;
+            font-family: Geneva;
+            font-size: 30px;
+            align-items: justify;
+            
+        }
+        a {
+            color: white;
+            font-family: Geneva;
+            font-size: 30px;
+            align-items: justify;
+            text-decoration: none;
+        }
+
+        h1 {
+            font-family: Geneva;
+            font-size: 45px;
+        }
+        h2 {
+            font-family: Geneva;
+            font-size: 45px;
+        }
+        h3 {
+            font-family: Geneva;
+            font-size: 45px;
+        }
+        h4 {
+            font-family: Geneva;
+            font-size: 45px;
+        }
+        h5 {
+            font-family: Geneva;
+            font-size: 45px;
+        }
+        body {
+            color: black;
+            background-color: white;
+            font-family: Geneva;
+            font-size: 30px;
+            align-items: justify;
+        }
+        p {
+            font-family: Geneva;
+            font-size: 30px;
+        }
+        footer {
+            font-family: Geneva;
+            font-size: 30px;
+        }
+        button {
+            color: white;
+            background-color: blueviolet;
+            font-family: Geneva;
+            font-size: 25px;
+            text-decoration: none;
+        }
+    </style>
+
+</head>
+
+<header>
+    <i>
+
+        <div class="center">
+    
+    <nav>
+    <ul>
+
+      <a href="index.html">A Missão</a> | <a href="biblias.html">Biblias</a> | <a href="escravidaoafricana.html">Escravidao Africana</a> | <a href="jesuitas.html">Jesuítas</a> | <a href="reisdeportugal.html">Reis de Portugal</a> | <a href="vaticano.html">Vaticano</a>
+
+        
+    </ul>
+    </nav>
+
+    <br><h1>Literatura referente aos indios do Brasil</h1></br>
+    </div>
+
+</header>
+
+
+<body>
+
+<form method="POST">
+    <label for="query">Digite sua consulta de pesquisa:</label><br>
+    <input type="text" id="query" name="query"><br>
+    <input type="reset" value="Limpar">
+    <input type="submit" value="Pesquisar">
+  </form>
+ <br>
+ <a href="indios.html"><button>Carregar Para Nova Pesquisa</button></a>  
+<div id="resposta">
+<br>
+
+    <i>
+<section>
+  
+  <p>Observação está página está em construção e em breve teremos exemplares em exposição virtual aqui!!!</p>
+
+<!--
+
+<br>
+
+    <article>
+    <h2>.</h2></br>
+    <img src="XXXXX" alt="XXXXX" /><br>
+    <alt>Referência Consultada:</alt><br>
+    <alt>XXXXXXXXXX</alt><br>
+    <button><a href="XXXXX" download="XXXXX">Livro Completo</a><button><br>
+    </article>
+
+<br>  
+      
+      <article>
+      <h3></h3></br>
+      <img src="XXXXX" alt="XXXXXX" /><br>
+      <alt>Referência Consultada:</alt><br>
+      <alt>XXXXXX.</alt><br>
+      <button><a href= "XXXXX" download="XXXXXX">Artigo Completo</a><button><br>
+      </article>
+<br>
+      <article>
+      <h4></h4></br>
+      <img src="XXXXX" alt="XXXXXX" /><br>
+      <alt>Referência Consultada:</alt><br>
+      <alt>XXXXXX.</alt><br>
+      <button><a href= "XXXXX" download="XXXXXX">Artigo Completo</a><button><br>
+      </article>
+
+<br>           
+     <article>
+      <h5></h5></br>
+      <img src="XXXXX" alt="XXXXXX" /><br>
+      <alt>Referência Consultada:</alt><br>
+      <alt>XXXXXX.</alt><br>
+      <button><a href= "XXXXX" download="XXXXXX">Artigo Completo</a><button><br>
+      </article>
+
+    -->  
+      
+    </section>
+  
+    
+    <br>
+  
+<center>
+  <footer>
+    <p>Site desenvolvido por Juliano <img src="https://d1yei2z3i6k35z.cloudfront.net/6946809/65e45ac72773e_zanoni.1.png" alt="Logo de Juliano Zanoni"></p>
+  </footer>
+</center>
+
+
+</i>
+
+</body>
+<script>
+    const form = document.querySelector('form');
+    const resposta = document.querySelector('#resposta');
+    const sections = document.querySelectorAll('section');
+    
+    // Crie um objeto para armazenar os resultados únicos
+    const uniqueResults = {};
+    
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const query = document.querySelector('#query').value.toLowerCase(); // Converta a consulta para minúsculas
+      const paragraphs = document.querySelectorAll('section article');
+    
+      const results = []; // Cria uma lista vazia para armazenar os resultados
+    
+      for (const paragraph of paragraphs) {
+        if (paragraph.textContent.toLowerCase().includes(query)) { // Compare em minúsculas
+          // Verifique se o resultado já existe no objeto uniqueResults
+          if (!uniqueResults[paragraph.outerHTML]) {
+            results.push(paragraph.outerHTML); // Adiciona o resultado à lista
+            uniqueResults[paragraph.outerHTML] = true; // Marca o resultado como único
+          }
+        }
+      }
+    
+      if (results.length > 0) {
+        resposta.innerHTML = results.join(''); // Exibe todos os resultados
+      } else {
+        resposta.innerHTML = 'Nenhum resultado encontrado.'; // Exibe uma mensagem de erro se não houver resultados
+      }
+    
+      // Exiba apenas a seção de resultados
+      for (const section of sections) {
+        if (section !== resposta.parentElement) {
+          section.style.display = 'none';
+        }
+      }
+    });    
+    </script>
+
+</html>
